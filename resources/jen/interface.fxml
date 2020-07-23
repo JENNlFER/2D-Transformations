@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="596.0" minWidth="838.0" prefHeight="729.0" prefWidth="1119.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jen.Controller">
+   <top>
+      <MenuBar prefWidth="988.0" BorderPane.alignment="CENTER">
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem id="Import" fx:id="Import" mnemonicParsing="false" onAction="#Import" text="Import" />
+                  <MenuItem id="Export" fx:id="Export" mnemonicParsing="false" onAction="#Export" text="Export" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Transformations">
+            <items>
+                  <Menu id="New" mnemonicParsing="false" text="New">
+                    <items>
+                      <MenuItem fx:id="Translation" mnemonicParsing="false" onAction="#Translation" text="Translation" />
+                        <MenuItem fx:id="Scale" mnemonicParsing="false" onAction="#Scale" text="Scale" />
+                        <MenuItem fx:id="Rotation" mnemonicParsing="false" onAction="#Rotation" text="Rotation" />
+                    </items>
+                  </Menu>
+                  <MenuItem id="Delete" fx:id="Apply" mnemonicParsing="false" onAction="#Apply" text="Apply" />
+                  <MenuItem id="Delete" fx:id="Delete" mnemonicParsing="false" onAction="#Delete" text="Clear" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Algorithm">
+              <items>
+                  <RadioMenuItem id="Bresenham" fx:id="Simple" mnemonicParsing="false" onAction="#Simple" text="Simple">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="algorithms" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem id="Simple" fx:id="Bresenham" mnemonicParsing="false" onAction="#Bresenham" selected="true" text="Bresenham" toggleGroup="$algorithms" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Generation">
+            <items>
+              <MenuItem id="Random" fx:id="Random" mnemonicParsing="false" onAction="#Random" text="Random" />
+                  <MenuItem id="Spectrum" fx:id="Spectrum" mnemonicParsing="false" onAction="#Spectrum" text="Spectrum" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Canvas">
+            <items>
+                  <Menu mnemonicParsing="false" text="Color">
+                    <items>
+                        <RadioMenuItem fx:id="White" mnemonicParsing="false" onAction="#White" styleClass="White" text="White">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="color" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="Black" mnemonicParsing="false" onAction="#Black" selected="true" styleClass="Black" text="Black" toggleGroup="$color" />
+                    </items>
+                  </Menu>
+                  <MenuItem id="Clear" fx:id="Clear" mnemonicParsing="false" onAction="#Clear" text="Clear" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: lightgrey; -fx-border-width: 0px 1px 0px 0px;" BorderPane.alignment="CENTER">
+         <top>
+            <GridPane id="Matrix" fx:id="Matrix" alignment="CENTER" gridLinesVisible="true" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="2" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="46.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </top>
+         <right>
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" pannable="true" style="-fx-box-border: transparent;" vbarPolicy="ALWAYS">
+              <content>
+                <AnchorPane style="-fx-border-width: 0 0 0 0;">
+                     <children>
+                        <VBox id="Transformations" fx:id="Transformations" prefHeight="653.0" prefWidth="200.0" style="-fx-border-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </right>
+      </BorderPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="Background" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER_RIGHT" layoutX="834.0" layoutY="677.0" prefHeight="22.0" prefWidth="61.0" text="900 x 700" />
+            <Canvas id="Canvas" fx:id="Canvas" height="700.0" width="900.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
